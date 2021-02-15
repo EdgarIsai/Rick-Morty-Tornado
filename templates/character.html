@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Character Info</title>
+	</head>
+	<body>
+		<form action="/character/{{character['id']}}" method="POST">
+			<h1>{{character['name']}}</h1>
+			<img src={{ character["image"] }} alt="{{character['name']}} image" />
+			<p>{{ character["species"]}}</p>
+			<input type="text" name="comment" />
+			<button type="submit">Submit</button>
+		</form>
+		{% for comment in comments %}
+		<p>Author: {{comment['author']}}</p>
+		<p>{{comment['comment']}}</p>
+		{%end%}
+	</body>
+</html>
